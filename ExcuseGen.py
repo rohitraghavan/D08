@@ -53,14 +53,14 @@ def main():
                             "Jolly", "Michelle", "Morgan", "Mudit"]
 
     # your one line of code goes here to print roster #
-
+    printRoster(bootcampParticipants)
     # add 'Daniel' to bootcampParticipants
-
+    bootcampParticipants += ["Daniel",]
     # Your Code Here ###
     # get random participant
-
+    idx = getRandomParticipantIndex(bootcampParticipants)
     # print person's name who has excuse today.
-
+    name = bootcampParticipants[idx]
     #
     # print person's name who has excuse today.
     # Fix code below to print name and excuse of person:

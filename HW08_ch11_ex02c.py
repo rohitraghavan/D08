@@ -13,28 +13,51 @@
 
 # Body
 def reverse_lookup_old(d, v):
+    found_keys = []
     for k in d:
-        if d[k] == v:
-            return k
-    raise ValueError
+    	if d[k] == v:
+    		found_keys.append(k)
+    return found_keys
 
 
 def reverse_lookup_new(d, v):
-    pass
+    found_keys = []
+    for k in d:
+    	if d[k] == v:
+    		found_keys.append(k)
+    return found_keys
 
 
 ###############################################################################
 # INSERT COMPLETED CODE FROM HW08_ch11_ex02a BELOW: ###########################
 ###############################################################################
 
+def histogram_new(s):
+    d = dict()
+    for c in s:
+        d[c] = d.get(c, 0) + 1
+    return d
+
+
+def get_pledge_list():
+    """ Opens pledge.txt and converts to a list, each item is a word in
+    the order it appears in the original file. returns the list.
+    """
+    pledge_list = []
+    with open("pledge.txt","r") as pledge_file:
+        for line in pledge_file:
+            for word in line.split():
+                pledge_list.append(word)
+    return pledge_list
 
 ###############################################################################
 # INSERT COMPLETED CODE FROM HW08_ch11_ex02a BELOW: ###########################
 ###############################################################################
 def main():   # DO NOT CHANGE BELOW
-    print(reverse_lookup_new(pledge_histogram, "1"))
-    print(reverse_lookup_new(pledge_histogram, "9"))
-    print(reverse_lookup_new(pledge_histogram, "Python"))
+	pledge_histogram = histogram_new(get_pledge_list())
+	print(reverse_lookup_new(pledge_histogram, 1))
+	print(reverse_lookup_new(pledge_histogram, 9))
+	print(reverse_lookup_new(pledge_histogram, "Python"))
 
 if __name__ == '__main__':
     main()
